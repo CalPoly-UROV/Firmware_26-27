@@ -2,13 +2,9 @@
 
 We follow the [GitHub flow](https://guides.github.com/introduction/flow/) development model.
 
-## Fork the project, then clone your repo
-
-First [fork and clone](https://help.github.com/articles/fork-a-repo) the project.
-
 ## Create a feature branch
 
-Always branch off `main` for new features.
+Always branch off `main` for new features. Branches should be named as such: Name-Feature-StartDate. 
 
 ```
 git checkout -b mydescriptivebranchname
@@ -17,6 +13,13 @@ git checkout -b mydescriptivebranchname
 ## Edit and build the code
 
 The [developer guide](https://docs.px4.io/main/en/development/development.html) explains how to set up the development environment on Mac OS, Linux or Windows.
+
+
+## Push your changes
+
+Push changes to your repo and send a [pull request]
+
+Make sure to include of a description of the work you are pushing. The only people who should be approving pull requests are Raymond or Sahaana.
 
 ### Coding standards
 
@@ -145,14 +148,6 @@ git rebase -i HEAD~N
 git push --force-with-lease
 ```
 
-## AI-assisted contributions
-
-AI coding assistants are welcome, under the [AI coding assistants policy](docs/en/contribute/ai_assistants.md):
-
-- You are the author. You must understand, and be able to defend, every line you submit. An AI tool is never an author or co-author, and never appears in a `Signed-off-by` tag.
-- Disclosure is required. Every commit with AI-generated or AI-assisted content must carry an `Assisted-by: NAME:MODEL` trailer in the commit body (for example `Assisted-by: Claude:claude-fable-5`).
-- All licensing, testing, and review requirements apply unchanged. Never claim testing that did not happen.
-
 ## Test your changes
 
 PX4 is safety-critical software. All contributions must include adequate testing where practical:
@@ -160,19 +155,3 @@ PX4 is safety-critical software. All contributions must include adequate testing
 - **New features** must include unit tests and/or integration tests that exercise the new functionality, where practical. Hardware-dependent changes that cannot be tested in SITL should include bench test or flight test evidence.
 - **Bug fixes** must include a regression test where practical. When automated testing is not feasible (hardware-specific issues, race conditions, etc.), provide a link to a flight log demonstrating the fix and the reproduction steps for the original bug.
 - **Reviewers** will verify that tests or test evidence exist before approving a pull request.
-
-### Types of tests
-
-| Test type | When to use | How to run |
-|-----------|-------------|------------|
-| **Unit tests** (gtest) | Module-level logic, math, parsing | `make tests` |
-| **SITL integration tests** (MAVSDK) | Flight behavior, failsafes, missions | `test/mavsdk_tests/` |
-| **Bench tests / flight logs** | Hardware-dependent changes | Upload logs to [Flight Review](https://logs.px4.io) |
-
-Since we care about safety, we will regularly ask you for test results. Best is to do a test flight (or bench test where it applies) and upload the log file from it (on the microSD card in the logs directory) to Google Drive or Dropbox and share the link.
-
-## Push your changes
-
-Push changes to your repo and send a [pull request](https://github.com/PX4/PX4-Autopilot/compare/).
-
-Make sure to provide some testing feedback and if possible the link to a flight log file. Upload flight log files to [Flight Review](http://logs.px4.io) and link the resulting report.
